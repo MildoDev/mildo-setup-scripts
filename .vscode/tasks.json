@@ -1,0 +1,10 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Local: pip install pre-commit && pre-commit install --install-hooks",
+      "type": "shell",
+      "command": "pip install pre-commit && pre-commit install --install-hooks"
+    }
+  ]
+}
