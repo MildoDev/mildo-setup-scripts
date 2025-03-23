@@ -33,6 +33,10 @@ install_terminal_utilities() {
     dnf -y install git-delta hyperfine nu tealdeer
 }
 
+install_appindicator() {
+    dnf -y install gnome-shell-extension-appindicator
+}
+
 install_vscode() {
     echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" >/etc/yum.repos.d/vscode.repo
     dnf -y install code
@@ -64,6 +68,7 @@ main() {
     install_docker
     install_terminal_programs
     install_terminal_utilities
+    install_appindicator
     install_vscode
     install_brave
     install_discord
