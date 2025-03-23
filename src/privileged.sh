@@ -60,6 +60,11 @@ install_discord() {
     flatpak install -y flathub com.discordapp.Discord
 }
 
+install_scrcpy() {
+    dnf -y copr enable zeno/scrcpy
+    dnf -y install scrcpy
+}
+
 install_v4l2loopback() {
     dnf -y install v4l2loopback
 }
@@ -87,6 +92,7 @@ main() {
     install_vscode
     install_brave
     install_discord
+    install_scrcpy
     install_v4l2loopback
     install_openfortivpn
     system_cleanup
