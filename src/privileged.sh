@@ -69,6 +69,10 @@ install_v4l2loopback() {
     dnf -y install v4l2loopback
 }
 
+install_antimicrox() {
+    dnf -y install antimicrox
+}
+
 install_openfortivpn() {
     dnf -y install openfortivpn
 }
@@ -94,6 +98,7 @@ main() {
     install_discord
     install_scrcpy
     install_v4l2loopback
+    install_antimicrox
     install_openfortivpn
     system_cleanup
 }
