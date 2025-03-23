@@ -4,6 +4,10 @@ configure_dnf() {
     dnf config-manager setopt max_parallel_downloads=15
 }
 
+enable_rpm_fusion_free() {
+    dnf -y install "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm"
+}
+
 system_upgrade() {
     dnf -y upgrade
 }
@@ -56,6 +60,10 @@ install_discord() {
     flatpak install -y flathub com.discordapp.Discord
 }
 
+install_v4l2loopback() {
+    dnf -y install v4l2loopback
+}
+
 install_openfortivpn() {
     dnf -y install openfortivpn
 }
@@ -67,6 +75,7 @@ system_cleanup() {
 
 main() {
     configure_dnf
+    enable_rpm_fusion_free
     system_upgrade
     install_nvidia_drivers
     install_development_libs
@@ -78,6 +87,7 @@ main() {
     install_vscode
     install_brave
     install_discord
+    install_v4l2loopback
     install_openfortivpn
     system_cleanup
 }
