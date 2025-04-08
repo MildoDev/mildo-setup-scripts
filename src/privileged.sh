@@ -56,6 +56,10 @@ install_brave() {
     dnf -y install brave-browser
 }
 
+install_virtualbox() {
+    dnf -y install virtualbox
+}
+
 install_discord() {
     flatpak install -y flathub com.discordapp.Discord
 }
@@ -95,6 +99,7 @@ main() {
     install_dropbox
     install_vscode
     install_brave
+    install_virtualbox
     install_discord
     install_scrcpy
     install_v4l2loopback
