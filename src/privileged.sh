@@ -13,6 +13,7 @@ system_upgrade() {
 }
 
 install_nvidia_drivers() {
+    echo "%_with_kmod_nvidia_open 1" > /etc/rpm/macros.nvidia-kmod
     dnf -y install akmod-nvidia
 }
 
