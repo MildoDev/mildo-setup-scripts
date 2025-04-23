@@ -21,6 +21,10 @@ install_cargo() {
     dnf -y install cargo
 }
 
+install_golang() {
+    dnf -y install golang
+}
+
 install_development_libs() {
     dnf -y install bzip2-devel ncurses-devel libffi-devel readline-devel sqlite-devel tk-devel
 }
@@ -97,6 +101,7 @@ main() {
     system_upgrade
     install_nvidia_drivers
     install_cargo
+    install_golang
     install_development_libs
     install_docker
     install_terminal_programs
