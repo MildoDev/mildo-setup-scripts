@@ -34,7 +34,7 @@ install_terminal_programs() {
 }
 
 install_terminal_utilities() {
-    dnf -y install bat eza fd-find procs ripgrep sd
+    dnf -y install bat eza fd-find procs ripgrep
     dnf -y install git-delta hyperfine nu tealdeer
 }
 
