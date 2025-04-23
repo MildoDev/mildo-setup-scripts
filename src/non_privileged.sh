@@ -40,20 +40,17 @@ add_zsh_aliases() {
 }
 
 install_asdf() {
-    git clone https://github.com/asdf-vm/asdf.git ~/.asdf
-    cd ~/.asdf || exit
-    git checkout tags/"$(git tag -l 'v*' --sort=-v:refname | head -n 1)"
-    cd - || exit
+    go install github.com/asdf-vm/asdf/cmd/asdf@v0.16.7
+    # shellcheck disable=SC2016
+    echo 'export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"' >> ~/.zshrc
     omz plugin enable asdf
 }
 
 install_asdf_languages() {
-    # shellcheck disable=SC1090
-    source ~/.zshrc
-    asdf plugin add python && asdf install python latest && asdf global python latest
-    asdf plugin add java && asdf install java latest:temurin && asdf global java latest:temurin
-    asdf plugin add nodejs && asdf install nodejs latest && asdf global nodejs latest && corepack enable
-    asdf plugin add pipx && asdf install pipx latest && asdf global pipx latest && pipx ensurepath
+    asdf plugin add python && asdf install python latest && asdf set --home python latest
+    asdf plugin add java && asdf install java latest:temurin && asdf set --home java latest:temurin
+    asdf plugin add nodejs && asdf install nodejs latest && asdf set --home nodejs latest && corepack enable
+    asdf plugin add pipx && asdf install pipx latest && asdf set --home pipx latest && pipx ensurepath
 }
 
 install_eza() {
@@ -62,7 +59,6 @@ install_eza() {
 
 install_dust() {
     cargo install du-dust
-    asdf reshim
 }
 
 configure_ssh() {
