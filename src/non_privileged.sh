@@ -51,6 +51,10 @@ install_asdf_languages() {
     asdf plugin add pipx && asdf install pipx latest && asdf global pipx latest && pipx ensurepath
 }
 
+install_eza() {
+    cargo install eza
+}
+
 install_dust() {
     cargo install du-dust
     asdf reshim
@@ -91,6 +95,7 @@ main() {
     add_zsh_aliases
     install_asdf
     install_asdf_languages
+    install_eza
     install_dust
     configure_ssh
     configure_gpg
