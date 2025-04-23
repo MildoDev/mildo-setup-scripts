@@ -1,5 +1,10 @@
 #!/bin/bash
 
+add_cargo_to_path() {
+    # shellcheck disable=SC2016
+    echo 'export PATH="$HOME/.cargo/bin:$PATH"' >> ~/.zshrc
+}
+
 install_fonts() {
     mkdir -p ~/.local/share/fonts/
     curl -fsSL --output-dir ~/.local/share/fonts/ \
@@ -79,6 +84,7 @@ configure_tealdeer() {
 }
 
 main() {
+    add_cargo_to_path
     install_fonts
     install_powerlevel10k
     install_zsh_plugins

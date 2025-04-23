@@ -17,6 +17,10 @@ install_nvidia_drivers() {
     dnf -y install akmod-nvidia
 }
 
+install_cargo() {
+    dnf -y install cargo
+}
+
 install_development_libs() {
     dnf -y install bzip2-devel ncurses-devel libffi-devel readline-devel sqlite-devel tk-devel
 }
@@ -92,6 +96,7 @@ main() {
     enable_rpm_fusion_free
     system_upgrade
     install_nvidia_drivers
+    install_cargo
     install_development_libs
     install_docker
     install_terminal_programs
