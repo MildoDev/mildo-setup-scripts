@@ -42,7 +42,6 @@ install_asdf_languages() {
     source ~/.zshrc
     asdf plugin add python && asdf install python latest && asdf global python latest
     asdf plugin add java && asdf install java latest:temurin && asdf global java latest:temurin
-    asdf plugin add rust && asdf install rust latest && asdf global rust latest
     asdf plugin add nodejs && asdf install nodejs latest && asdf global nodejs latest && corepack enable
     asdf plugin add pipx && asdf install pipx latest && asdf global pipx latest && pipx ensurepath
 }
