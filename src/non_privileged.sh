@@ -47,6 +47,8 @@ install_asdf() {
 }
 
 install_asdf_languages() {
+    # shellcheck disable=SC1090
+    source ~/.zshrc
     asdf plugin add python && asdf install python latest && asdf set --home python latest
     asdf plugin add java && asdf install java latest:temurin && asdf set --home java latest:temurin
     asdf plugin add nodejs && asdf install nodejs latest && asdf set --home nodejs latest && corepack enable
