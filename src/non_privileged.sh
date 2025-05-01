@@ -25,10 +25,6 @@ install_zsh_plugins() {
     omz plugin enable mise zsh-autosuggestions zsh-syntax-highlighting
 }
 
-add_zsh_aliases() {
-    echo -e "\nalias cat=\"bat\"\nalias ls=\"eza --icons\"\n" >> ~/.zshrc
-}
-
 install_mise_languages() {
     mise use --global python java nodejs rust go pipx
     eval "$(mise activate zsh)"
@@ -40,6 +36,10 @@ install_eza() {
 
 install_dust() {
     cargo install du-dust
+}
+
+add_zsh_aliases() {
+    echo -e "\nalias cat=\"bat\"\nalias ls=\"eza --icons\"\n" >> ~/.zshrc
 }
 
 configure_ssh() {
@@ -73,10 +73,10 @@ main() {
     install_fonts
     install_powerlevel10k
     install_zsh_plugins
-    add_zsh_aliases
     install_mise_languages
     install_eza
     install_dust
+    add_zsh_aliases
     configure_ssh
     configure_gpg
     configure_git
