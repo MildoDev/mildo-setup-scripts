@@ -17,16 +17,9 @@ install_nvidia_drivers() {
     dnf -y install akmod-nvidia
 }
 
-install_cargo() {
-    dnf -y install cargo
-}
-
-install_golang() {
-    dnf -y install golang
-}
-
-install_development_libs() {
-    dnf -y install bzip2-devel ncurses-devel libffi-devel readline-devel sqlite-devel tk-devel
+install_mise() {
+    dnf config-manager addrepo --from-repofile https://mise.jdx.dev/rpm/mise.repo
+    dnf -y install mise
 }
 
 install_docker() {
@@ -100,9 +93,7 @@ main() {
     enable_rpm_fusion_free
     system_upgrade
     install_nvidia_drivers
-    install_cargo
-    install_golang
-    install_development_libs
+    install_mise
     install_docker
     install_terminal_programs
     install_terminal_utilities

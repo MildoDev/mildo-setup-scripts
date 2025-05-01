@@ -1,15 +1,5 @@
 #!/bin/bash
 
-add_cargo_to_path() {
-    # shellcheck disable=SC2016
-    echo 'export PATH="$HOME/.cargo/bin:$PATH"' >> ~/.zshrc
-}
-
-add_golang_to_path() {
-    # shellcheck disable=SC2016
-    echo 'export PATH="$HOME/go/bin:$PATH"' >> ~/.zshrc
-}
-
 install_fonts() {
     mkdir -p ~/.local/share/fonts/
     curl -fsSL --output-dir ~/.local/share/fonts/ \
@@ -32,27 +22,16 @@ install_powerlevel10k() {
 install_zsh_plugins() {
     git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM}/plugins/zsh-autosuggestions"
     git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM}/plugins/zsh-syntax-highlighting"
-    omz plugin enable zsh-autosuggestions zsh-syntax-highlighting
+    omz plugin enable mise zsh-autosuggestions zsh-syntax-highlighting
 }
 
 add_zsh_aliases() {
     echo -e "\nalias cat=\"bat\"\nalias ls=\"eza --icons\"\n" >>~/.zshrc
 }
 
-install_asdf() {
-    go install github.com/asdf-vm/asdf/cmd/asdf@v0.16.7
-    # shellcheck disable=SC2016
-    echo 'export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"' >> ~/.zshrc
-    omz plugin enable asdf
-}
-
-install_asdf_languages() {
-    # shellcheck disable=SC1090
-    source ~/.zshrc
-    asdf plugin add python && asdf install python latest && asdf set --home python latest
-    asdf plugin add java && asdf install java latest:temurin && asdf set --home java latest:temurin
-    asdf plugin add nodejs && asdf install nodejs latest && asdf set --home nodejs latest && corepack enable
-    asdf plugin add pipx && asdf install pipx latest && asdf set --home pipx latest && pipx ensurepath
+install_mise_languages() {
+    mise use --global python java nodejs rust go pipx
+    eval "$(mise activate zsh)"
 }
 
 install_eza() {
@@ -91,14 +70,11 @@ configure_tealdeer() {
 }
 
 main() {
-    add_cargo_to_path
-    add_golang_to_path
     install_fonts
     install_powerlevel10k
     install_zsh_plugins
     add_zsh_aliases
-    install_asdf
-    install_asdf_languages
+    install_mise_languages
     install_eza
     install_dust
     configure_ssh
