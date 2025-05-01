@@ -16,7 +16,7 @@ install_powerlevel10k() {
     omz theme set powerlevel10k/powerlevel10k
     # shellcheck disable=SC1090
     source ~/.zshrc
-    p10k configure && echo -e "\nPOWERLEVEL9K_TERM_SHELL_INTEGRATION=true\n" >>~/.p10k.zsh
+    p10k configure && echo -e "\nPOWERLEVEL9K_TERM_SHELL_INTEGRATION=true\n" >> ~/.p10k.zsh
 }
 
 install_zsh_plugins() {
@@ -26,7 +26,7 @@ install_zsh_plugins() {
 }
 
 add_zsh_aliases() {
-    echo -e "\nalias cat=\"bat\"\nalias ls=\"eza --icons\"\n" >>~/.zshrc
+    echo -e "\nalias cat=\"bat\"\nalias ls=\"eza --icons\"\n" >> ~/.zshrc
 }
 
 install_mise_languages() {
