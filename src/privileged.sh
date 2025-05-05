@@ -31,7 +31,7 @@ install_docker() {
 
 install_terminal_programs() {
     dnf -y install kitty zsh
-    chsh -s "$(which zsh)" "${USERNAME}"
+    chsh -s /bin/zsh "${USERNAME}"
 }
 
 install_terminal_utilities() {
