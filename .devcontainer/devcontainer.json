@@ -1,0 +1,23 @@
+{
+  "dockerFile": "Dockerfile",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "files.insertFinalNewline": true,
+        "files.trimTrailingWhitespace": true,
+        "files.trimFinalNewlines": true,
+        "editor.formatOnSave": true,
+        "editor.rulers": [
+          80,
+          120
+        ],
+        "workbench.iconTheme": "vscode-icons"
+      },
+      "extensions": [
+        "timonwong.shellcheck",
+        "vscode-icons-team.vscode-icons"
+      ]
+    }
+  },
+  "postCreateCommand": "pre-commit install --install-hooks"
+}
