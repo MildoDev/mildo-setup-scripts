@@ -88,6 +88,10 @@ install_openfortivpn() {
     dnf -y install openfortivpn
 }
 
+install_steam() {
+    flatpak install -y flathub com.valvesoftware.Steam
+}
+
 system_cleanup() {
     dnf -y autoremove
     dnf clean all
@@ -113,6 +117,7 @@ main() {
     install_v4l2loopback
     install_antimicrox
     install_openfortivpn
+    install_steam
     system_cleanup
 }
 
