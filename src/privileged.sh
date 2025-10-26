@@ -76,10 +76,6 @@ install_scrcpy() {
     dnf -y install scrcpy
 }
 
-install_v4l2loopback() {
-    dnf -y install v4l2loopback
-}
-
 install_antimicrox() {
     dnf -y install antimicrox
 }
@@ -114,7 +110,6 @@ main() {
     install_virtualbox
     install_discord
     install_scrcpy
-    install_v4l2loopback
     install_antimicrox
     install_openfortivpn
     install_steam
