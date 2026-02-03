@@ -76,10 +76,6 @@ install_scrcpy() {
     dnf -y install scrcpy
 }
 
-install_antimicrox() {
-    dnf -y install antimicrox
-}
-
 install_openfortivpn() {
     dnf -y install openfortivpn
 }
@@ -110,7 +106,6 @@ main() {
     install_virtualbox
     install_discord
     install_scrcpy
-    install_antimicrox
     install_openfortivpn
     install_steam
     system_cleanup
