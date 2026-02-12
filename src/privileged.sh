@@ -53,11 +53,6 @@ install_vscode() {
     dnf -y install code
 }
 
-install_librewolf() {
-    dnf config-manager addrepo --from-repofile https://repo.librewolf.net/librewolf.repo
-    dnf -y install librewolf
-}
-
 install_brave() {
     dnf config-manager addrepo --from-repofile https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
     dnf -y install brave-browser
@@ -102,7 +97,6 @@ main() {
     install_appindicator
     install_dropbox
     install_vscode
-    install_librewolf
     install_brave
     install_virtualbox
     install_discord
