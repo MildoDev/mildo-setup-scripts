@@ -58,8 +58,8 @@ install_brave() {
     dnf -y install brave-browser
 }
 
-install_virtualbox() {
-    dnf -y install virtualbox
+install_virt_manager() {
+    dnf -y install virt-manager
 }
 
 install_discord() {
@@ -98,7 +98,7 @@ main() {
     install_dropbox
     install_vscode
     install_brave
-    install_virtualbox
+    install_virt_manager
     install_discord
     install_scrcpy
     install_openfortivpn
