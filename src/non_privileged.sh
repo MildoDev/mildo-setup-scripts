@@ -64,11 +64,6 @@ configure_git() {
     git config --global merge.conflictStyle zdiff3
 }
 
-configure_tealdeer() {
-    tldr --seed-config
-    sed -i "s/auto_update = false/auto_update = true/" ~/.config/tealdeer/config.toml
-}
-
 main() {
     install_fonts
     install_powerlevel10k
@@ -80,7 +75,6 @@ main() {
     configure_ssh
     configure_gpg
     configure_git
-    configure_tealdeer
 }
 
 main

@@ -36,7 +36,7 @@ install_terminal_programs() {
 
 install_terminal_utilities() {
     dnf -y install bat fd-find procs ripgrep
-    dnf -y install git-delta aria2 hyperfine tealdeer
+    dnf -y install git-delta aria2 hyperfine
 }
 
 install_appindicator() {
