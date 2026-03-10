@@ -38,10 +38,6 @@ install_dust() {
     cargo install du-dust
 }
 
-add_zsh_aliases() {
-    echo -e "\nalias cat=\"bat\"\nalias ls=\"eza --icons\"\n" >> ~/.zshrc
-}
-
 configure_ssh() {
     echo -n "(SSH and Git) Enter your email: " && read -r USER_EMAIL
     ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519 -C "${USER_EMAIL}"
@@ -71,7 +67,6 @@ main() {
     install_mise_languages
     install_eza
     install_dust
-    add_zsh_aliases
     configure_ssh
     configure_gpg
     configure_git
