@@ -90,6 +90,7 @@ install_openfortivpn() {
 
 install_steam() {
     flatpak install -y flathub com.valvesoftware.Steam
+    apt -y install steam-devices
 }
 
 system_cleanup() {
