@@ -1,7 +1,9 @@
 #!/bin/bash
 
 start_privileged_script() {
-    sudo ./privileged.sh
+    if [ -f /etc/fedora-release ]; then
+        sudo ./fedora/privileged.sh
+    fi
 }
 
 install_oh_my_zsh() {
