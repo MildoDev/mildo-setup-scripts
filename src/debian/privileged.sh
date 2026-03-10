@@ -9,6 +9,10 @@ system_upgrade() {
     apt -y upgrade
 }
 
+install_curl() {
+    apt -y install curl
+}
+
 install_nvidia_drivers() {
     apt -y install "linux-headers-$(uname -r)" nvidia-driver
 }
@@ -92,6 +96,7 @@ system_cleanup() {
 main() {
     enable_contrib_and_non_free_sources
     system_upgrade
+    install_curl
     install_nvidia_drivers
     install_flatpak
     install_mise
