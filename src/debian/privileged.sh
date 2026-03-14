@@ -17,7 +17,7 @@ install_nvidia_drivers() {
     curl -fsSL https://developer.download.nvidia.com/compute/cuda/repos/debian13/x86_64/8793F200.pub | gpg --dearmor > /usr/share/keyrings/nvidia-cuda.gpg
     echo -e "Types: deb\nURIs: https://developer.download.nvidia.com/compute/cuda/repos/debian13/x86_64/\nSuites: /\nComponents:\nSigned-By: /usr/share/keyrings/nvidia-cuda.gpg" > /etc/apt/sources.list.d/nvidia-cuda.sources
     apt update
-    apt -y install "linux-headers-$(uname -r)" nvidia-kernel-open-dkms
+    apt -y install "linux-headers-amd64" nvidia-kernel-open-dkms
     mokutil --import /var/lib/dkms/mok.pub
 }
 
