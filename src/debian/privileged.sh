@@ -97,6 +97,10 @@ install_hunspell_pt_br() {
     apt -y install hunspell-pt-br
 }
 
+install_qpdf() {
+    apt -y install qpdf
+}
+
 system_cleanup() {
     apt -y autoremove --purge
     apt clean
@@ -121,6 +125,7 @@ main() {
     install_openfortivpn
     install_steam
     install_hunspell_pt_br
+    install_qpdf
     system_cleanup
 }
 
