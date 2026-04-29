@@ -93,6 +93,10 @@ install_steam() {
     apt -y install steam-devices
 }
 
+install_hunspell_pt_br() {
+    apt -y install hunspell-pt-br
+}
+
 system_cleanup() {
     apt -y autoremove --purge
     apt clean
@@ -116,6 +120,7 @@ main() {
     install_discord
     install_openfortivpn
     install_steam
+    install_hunspell_pt_br
     system_cleanup
 }
 
