@@ -1,25 +1,12 @@
 #!/bin/bash
 
-install_fonts() {
-    mkdir -p ~/.local/share/fonts/
-    curl -fsSL --output-dir ~/.local/share/fonts/ \
-        -O https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf \
-        -O https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf \
-        -O https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf \
-        -O https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf
-}
-
-install_powerlevel10k() {
-    # shellcheck disable=SC1090
-    source ~/.zshrc
-    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM}/themes/powerlevel10k"
-    omz theme set powerlevel10k/powerlevel10k
-    # shellcheck disable=SC1090
-    source ~/.zshrc
-    p10k configure && echo -e "\nPOWERLEVEL9K_TERM_SHELL_INTEGRATION=true\n" >> ~/.p10k.zsh
+configure_starship() {
+    echo -e "eval \"\$(starship init zsh)\"\n" >> ~/.zshrc
 }
 
 install_zsh_plugins() {
+    # shellcheck disable=SC1090
+    source ~/.zshrc
     git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM}/plugins/zsh-autosuggestions"
     git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM}/plugins/zsh-syntax-highlighting"
     omz plugin enable mise zsh-autosuggestions zsh-syntax-highlighting
@@ -61,8 +48,7 @@ configure_git() {
 }
 
 main() {
-    install_fonts
-    install_powerlevel10k
+    configure_starship
     install_zsh_plugins
     install_mise_languages
     install_eza

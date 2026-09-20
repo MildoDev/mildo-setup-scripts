@@ -41,6 +41,14 @@ install_docker() {
     usermod -aG docker "${SUDO_USER}"
 }
 
+install_starship() {
+    apt -y install starship
+}
+
+install_firacode() {
+    apt -y install fonts-firacode
+}
+
 install_terminal_programs() {
     apt -y install kitty zsh
     chsh -s /bin/zsh "${SUDO_USER}"
@@ -114,6 +122,8 @@ main() {
     install_flatpak
     install_mise
     install_docker
+    install_starship
+    install_firacode
     install_terminal_programs
     install_terminal_utilities
     install_appindicator
