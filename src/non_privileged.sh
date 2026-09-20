@@ -18,7 +18,7 @@ install_mise_languages() {
 }
 
 install_eza() {
-    cargo install eza
+    cargo install --locked eza
 }
 
 install_dust() {
