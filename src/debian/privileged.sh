@@ -92,6 +92,13 @@ install_discord() {
     flatpak install -y flathub com.discordapp.Discord
 }
 
+install_claude_desktop() {
+    curl -fsSL https://downloads.claude.ai/claude-desktop/key.asc -o /usr/share/keyrings/claude-desktop-archive-keyring.asc
+    echo "deb [signed-by=/usr/share/keyrings/claude-desktop-archive-keyring.asc] https://downloads.claude.ai/claude-desktop/apt/stable stable main" > /etc/apt/sources.list.d/claude-desktop.list
+    apt update
+    apt install -y claude-desktop
+}
+
 install_openfortivpn() {
     apt -y install openfortivpn
 }
@@ -132,6 +139,7 @@ main() {
     install_brave
     install_virt_manager
     install_discord
+    install_claude_desktop
     install_openfortivpn
     install_steam
     install_hunspell_pt_br
